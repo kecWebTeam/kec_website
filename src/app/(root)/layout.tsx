@@ -1,3 +1,5 @@
+import Header from "@/components/header/header";
+
 export default async function RootGroupLayout({
   children,
 }: Readonly<{
@@ -7,6 +9,7 @@ export default async function RootGroupLayout({
   return (
     <>
       <main>
+        <Header />
         {children}
       </main>
     </>
