@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "./Logo";
 
 export type NavSubLink = {
   label: string;
@@ -29,14 +30,14 @@ const defaultNavItems: NavLink[] = [
   { label: "Home", href: "/" },
   {
     label: "About KEC",
-    href: "/about",
+    href: "/about/history",
     items: [
       { label: "History", href: "/about/history" },
       { label: "Administration", href: "/about/administration" },
-      { label: "Vision & Mission", href: "/about/vision-mission" },
+      { label: "Vision & Mission", href: "/about/vision" },
       { label: "Principal's Message", href: "/about/principal-message" },
       { label: "Affiliation", href: "/about/affiliation" },
-      { label: "Allotment & Surrender Report", href: "/about/allotment-surrender-report" },
+      { label: "Allotment & Surrender Report", href: "/about/allotment" },
     ],
   },
   {
@@ -154,31 +155,7 @@ export default function Header({
       {/* Top bar: logo + brand text + search */}
       <header className="flex flex-wrap items-center justify-between gap-5 border-y-[6px] border-[#cfe6d8] bg-white px-10 py-3.5 max-[900px]:justify-center max-[900px]:px-5 max-[900px]:text-center">
         <div className="flex items-center gap-4.5 max-[900px]:flex-col max-[900px]:text-center">
-          <Link href="/" aria-label="Katihar Engineering College home">
-            <Image
-              src="/brand/kec.png"
-              alt="Katihar Engineering College Logo"
-              width={100}
-              height={100}
-              priority
-              className="h-auto w-auto shrink-0"
-            />
-          </Link>
-
-          <div>
-            <p className="m-0 mb-0.5 text-sm font-semibold text-[#b5883f]">
-              कटिहार अभियन्त्रण महाविद्यालय
-            </p>
-            <h1 className="m-0 font-serif text-[26px] font-bold leading-tight text-[#0e6e4a]">
-              Katihar Engineering College
-            </h1>
-            <p className="m-0 mb-1 font-serif text-[22px] font-bold text-[#0e6e4a]">
-              Katihar
-            </p>
-            <p className="m-0 text-[13px] italic text-[#5a5a5a]">
-              ( Dept. of Science &amp; Technology, Govt. of Bihar )
-            </p>
-          </div>
+          <Logo />
         </div>
 
         <form className="m-0 flex items-center" onSubmit={handleSearchSubmit}>

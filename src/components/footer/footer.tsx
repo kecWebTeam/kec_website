@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight, Map } from "lucide-react";
 
 import {
   FaFacebook,
@@ -67,27 +67,27 @@ export default function Footer() {
 
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="/" aria-label="Katihar Engineering College home">
-              <Image
-                src="/brand/kec.png"
-                alt="Katihar Engineering College Logo"
-                width={120}
-                height={120}
-                priority
-                className="seal"
-              />
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link href="/" aria-label="Katihar Engineering College home">
+                <Image
+                  src="/brand/kec.png"
+                  alt="Katihar Engineering College Logo"
+                  width={100}
+                  height={100}
+                  priority
+                  className="shrink-0"
+                />
+              </Link>
 
-            <h3 className="text-xl font-bold text-slate-900">
-              Katihar Engineering College
-            </h3>
+              <h3 className="text-xl font-bold text-slate-900">
+                Katihar Engineering College
+              </h3>
+            </div>
 
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-5 text-sm leading-7 text-slate-600">
               Empowering future engineers through quality education, innovation,
               research, and holistic development.
             </p>
-
-            {/* Website Since Badge */}
 
             <p className="mt-6 border-t pt-4 text-sm text-slate-500">
               Website serving students since <strong>January 2019</strong>
@@ -147,27 +147,46 @@ export default function Footer() {
 
             <div className="space-y-5 text-slate-600">
               <div className="flex gap-3">
-                <MapPin className="mt-1 h-5 w-5 shrink-0 text-blue-600" />
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#0e6e4a]" />
 
-                <address className="not-italic text-slate-600 leading-6">
-                  Katihar Engineering College
-                  <br />
-                  Hirdayganj
-                  <br />
-                  Hajipur, Katihar - 854109
-                  <br />
-                  Bihar, India
-                </address>
+                <div>
+                  <address className="not-italic leading-6 text-slate-600">
+                    Katihar Engineering College
+                    <br />
+                    Hirdayganj
+                    <br />
+                    Hajipur, Katihar - 854109
+                    <br />
+                    Bihar, India
+                  </address>
+
+                  <Link
+                    href="https://maps.google.com/?q=Katihar+Engineering+College+Katihar+Bihar+854109"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group mt-5 inline-flex items-center gap-3 whitespace-nowrap rounded-xl border border-[#0e6e4a]/30 bg-[#0e6e4a]/10 px-4 py-3 font-medium text-[#0e6e4a] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-[#0e6e4a] hover:bg-[#0e6e4a] hover:text-white hover:shadow-lg"
+                  >
+                    <div className="rounded-full bg-white p-1 transition-colors group-hover:bg-[#0f8a5c]">
+                      <Map className="h-4 w-4" />
+                    </div>
+
+                    <span className="text-sm font-semibold">
+                      View on Google Maps
+                    </span>
+
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-blue-600" />
+                <Phone className="h-5 w-5 text-[#0e6e4a]" />
 
                 <span>06452-239122</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-blue-600" />
+                <Mail className="h-5 w-5 text-[#0e6e4a]" />
                 <Link
                   href="mailto:principalranjanakri84@gmail.com"
                   className="hover:text-blue-600 transition-colors"
@@ -213,7 +232,7 @@ export default function Footer() {
 
           <p>
             Designed & Developed by
-            <span className="ml-2 font-semibold text-blue-700">
+            <span className="ml-2 font-semibold text-blue-700 cursor-pointer">
               KEC Web Team ❤️
             </span>
           </p>
