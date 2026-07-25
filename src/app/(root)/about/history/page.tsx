@@ -1,6 +1,6 @@
-import HistoryContent from "@/components/history/HistoryContent";
-import AboutSidebar from "@/components/history/HistoryContent";
-import CollegeInfoCard from "@/components/history/CollegeInfoCard";
+import HistoryContent from "@/components/about/history/HistoryContent";
+import AboutSidebar from "@/components/about/history/HistoryContent";
+import CollegeInfoCard from "@/components/about/history/CollegeInfoCard";
 
 export default function HistoryPage() {
   return (

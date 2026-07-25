@@ -26,7 +26,7 @@ export default function InfoRow({
         </span>
       </div>
 
-      <div className="text-gray-700 font-medium">
+      <div className="text-gray-700 font-medium text-right">
         {value}
       </div>
     </div>

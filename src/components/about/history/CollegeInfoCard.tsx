@@ -12,7 +12,7 @@ import {
   Landmark,
   BookOpen,
 } from "lucide-react";
-import Logo from "../header/Logo";
+import Logo from "../../header/Logo";
 
 export default function CollegeInfoCard() {
   return (
@@ -20,7 +20,7 @@ export default function CollegeInfoCard() {
 
       {/* Header */}
 
-      <div className="p-8 bg-gradient-to-br from-white to-green-50">
+      <div className="p-8 bg-linear-to-br from-white to-green-50">
 
         <div className="flex flex-col items-center">
 

@@ -18,7 +18,7 @@ export default function StatCard({
       rounded-3xl
       border
       border-gray-200
-      bg-gradient-to-br
+      bg-linear-to-br
       from-white
       to-green-50
       p-7
@@ -26,6 +26,9 @@ export default function StatCard({
       duration-300
       hover:shadow-2xl
       hover:-translate-y-2
+      flex
+      flex-col
+      items-center
     "
     >
       <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[rgb(14,110,74)]/10 group-hover:bg-[rgb(14,110,74)] transition">
