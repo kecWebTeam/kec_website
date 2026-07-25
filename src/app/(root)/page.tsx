@@ -1,10 +1,7 @@
+import HeroVideo from "@/components/home/herovideo";
 
-
-export default async function Home() {
-
+export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-24">
-      Home Page
-    </main>
+    <HeroVideo videoSrc="/videos/hero.mp4" startTime={7} />
   );
 }

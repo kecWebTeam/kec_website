@@ -6,475 +6,276 @@ import Link from "next/link";
 import Image from "next/image";
 
 export type NavSubLink = {
-    label: string;
-    href: string;
+  label: string;
+  href: string;
 };
 
 export type NavLink = {
-    label: string;
-    href: string;
-    items?: NavSubLink[];
+  label: string;
+  href: string;
+  items?: NavSubLink[];
 };
 
 export type HeaderProps = {
-    /** Nav items shown in the bottom bar. Falls back to sample KEC links if not provided. */
-    navItems?: NavLink[];
-    /** Where the "Login" button on the far right points. */
-    loginHref?: string;
-    /** Called when the user submits the faculty search box. */
-    onSearch?: (query: string) => void;
+  /** Nav items shown in the bottom bar. Falls back to sample KEC links if not provided. */
+  navItems?: NavLink[];
+  /** Where the "Login" button on the far right points. */
+  loginHref?: string;
+  /** Called when the user submits the faculty search box. */
+  onSearch?: (query: string) => void;
 };
 
 const defaultNavItems: NavLink[] = [
-    { label: "Home", href: "/" },
-    {
-        label: "About KEC",
-        href: "/about",
-        items: [
-            { label: "History", href: "/about/history" },
-            { label: "Vision & Mission", href: "/about/vision-mission" },
-            { label: "Principal's Message", href: "/about/principal-message" },
-            { label: "Governing Body", href: "/about/governing-body" },
-        ],
-    },
-    {
-        label: "Academic",
-        href: "/academic",
-        items: [
-            { label: "Courses Offered", href: "/academic/courses" },
-            { label: "Academic Calendar", href: "/academic/calendar" },
-            { label: "Syllabus", href: "/academic/syllabus" },
-            { label: "Result", href: "/academic/result" },
-        ],
-    },
-    {
-        label: "Departments",
-        href: "/departments",
-        items: [
-            { label: "Computer Science", href: "/departments/cse" },
-            { label: "Electrical Engineering", href: "/departments/ee" },
-            { label: "Mechanical Engineering", href: "/departments/me" },
-            { label: "Civil Engineering", href: "/departments/ce" },
-        ],
-    },
-    {
-        label: "Facilities",
-        href: "/facilities",
-        items: [
-            { label: "Library", href: "/facilities/library" },
-            { label: "Hostel", href: "/facilities/hostel" },
-            { label: "Sports", href: "/facilities/sports" },
-            { label: "Transport", href: "/facilities/transport" },
-        ],
-    },
-    {
-        label: "Training & Placement",
-        href: "/training-placement",
-        items: [
-            { label: "Placement Cell", href: "/training-placement/cell" },
-            { label: "Recruiters", href: "/training-placement/recruiters" },
-            { label: "Training Programs", href: "/training-placement/programs" },
-            { label: "Internships", href: "/training-placement/internships" },
-        ],
-    },
-    {
-        label: "Approval",
-        href: "/approval",
-        items: [
-            { label: "AICTE Approval", href: "/approval/aicte" },
-            { label: "UGC Recognition", href: "/approval/ugc" },
-            { label: "State Govt Approval", href: "/approval/state-govt" },
-        ],
-    },
-    {
-        label: "RTI",
-        href: "/rti",
-        items: [
-            { label: "RTI Act", href: "/rti/act" },
-            { label: "PIO Details", href: "/rti/pio" },
-            { label: "RTI Application", href: "/rti/application" },
-        ],
-    },
-    {
-        label: "Gallery",
-        href: "/gallery",
-        items: [
-            { label: "Photo Gallery", href: "/gallery/photos" },
-            { label: "Video Gallery", href: "/gallery/videos" },
-            { label: "Events", href: "/gallery/events" },
-        ],
-    },
-    { label: "NBA", href: "/nba" },
-    { label: "Downloads", href: "/downloads" },
+  { label: "Home", href: "/" },
+  {
+    label: "About KEC",
+    href: "/about",
+    items: [
+      { label: "History", href: "/about/history" },
+      { label: "Administration", href: "/about/administration" },
+      { label: "Vision & Mission", href: "/about/vision-mission" },
+      { label: "Principal's Message", href: "/about/principal-message" },
+      { label: "Affiliation", href: "/about/affiliation" },
+      { label: "Allotment & Surrender Report", href: "/about/allotment-surrender-report" },
+    ],
+  },
+  {
+    label: "Academic",
+    href: "/academic",
+    items: [
+      { label: "Admission", href: "/academic/admission" },
+      { label: "Academic Regulations", href: "/academic/regulations" },
+      { label: "Academic Calendar", href: "/academic/calendar" },
+      { label: "Computer Center Labs", href: "/academic/computer-center-labs" },
+      { label: "List of Holidays", href: "/academic/holidays" },
+      { label: "Attendance", href: "/academic/attendance" },
+      { label: "Syllabus", href: "/academic/syllabus" },
+      { label: "Disciplinary Rules", href: "/academic/disciplinary-rules" },
+      { label: "Online Fee Payment Tutorial", href: "/academic/online-fee-payment-tutorial" },
+      { label: "Anti Ragging", href: "/academic/anti-ragging" },
+      { label: "MoM of Academic Council", href: "/academic/mom-academic-council" },
+      { label: "Notice from Govt.", href: "/academic/notice-from-govt" },
+    ],
+  },
+  {
+    label: "Departments",
+    href: "/departments",
+    items: [
+      { label: "Civil Engineering", href: "/departments/ce" },
+      { label: "Mechanical Engineering", href: "/departments/me" },
+      { label: "Mechanical and Smart Manufacturing", href: "/departments/msm" },
+      { label: "Electronics Engineering (VLSI Design and Technology", href: "/departments/ece" },
+      { label: "Computer Sc. & Engineering", href: "/departments/cse" },
+      { label: "Electrical & Electronics Engg.", href: "/departments/eee" },
+      { label: "Applied Sc. & Humanities", href: "/departments/ash" },
+      { label: "Food Processing", href: "/departments/fpe" },
+    ],
+  },
+  {
+    label: "Facilities",
+    href: "/facilities",
+    items: [
+      { label: "Bank", href: "facilities/bank" },
+      { label: "Central Library", href: "/facilities/library" },
+      { label: "Computer Centre", href: "/facilities/computer-centre" },
+      { label: "Club", href: "/facilities/club" },
+      { label: "Guest House", href: "/facilities/guest-house" },
+      { label: "Gymnasium", href: "/facilities/gymnasium" },
+      { label: "Health Centre", href: "/facilities/health-centre" },
+      { label: "Hostels", href: "/facilities/hostels" },
+      { label: "Medical Facilities", href: "/facilities/medical-facilities" },
+      { label: "Placement", href: "/facilities/placement" },
+      { label: "Sports Facilities", href: "/facilities/sports-facilities" },
+      { label: "Startup Cell", href: "/facilities/startup-cell"},
+      { label: "Useful Link", href: "/facilities/useful-link" },
+      { label: "Wi Fi", href: "/facilities/wi-fi" },
+    ],
+  },
+  {
+    label: "Training & Placement",
+    href: "/training-placement",
+    items: [
+      { label: "About Placement", href: "/training-placement/about" },
+      { label: "Placement Brouchure", href: "/training-placement/brouchure" },
+      { label: "Rules of training & Placement", href: "/training-placement/rules" },
+      { label: "Tips for Resume", href: "/training-placement/resume" },
+      { label: "Placed Students", href: "/training-placement/placed-students" },
+      { label: "Student Placement Coordinator", href: "/training-placement/student-placement-coordinator" },
+      { label: "Placement Portal", href: "/training-placement/placement-portal" },
+    ],
+  },
+  {
+    label: "Approval",
+    href: "/approval",
+    items: [
+      { label: "AICTE Approval", href: "/approval/aicte" },
+      { label: "AKU Approval", href: "/approval/ugc" },
+      { label: "Grievance", href: "/approval/grievance" },
+      { label: "Mandatory Disclosure", href: "/approval/mandatory-disclosure" },
+    ],
+  },
+  {
+    label: "RTI",
+    href: "/rti",
+    items: [
+      { label: "RTI Act 2005", href: "/rti/act" },
+      { label: "RTI Application Form", href: "/rti/application" },
+      { label: "RTI Status", href: "/rti/status" },
+      { label: "Public Information Cell", href: "/rti/public-information-cell" },
+    ],
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
+    items: [
+      { label: "Photo Gallery", href: "/gallery/photos" },
+      { label: "Video Gallery", href: "/gallery/videos" },
+    ],
+  },
+  { label: "NBA", href: "/nba" },
+  { label: "Downloads", href: "/downloads" },
 ];
 
 export default function Header({
-    navItems = defaultNavItems,
-    loginHref = "/login",
-    onSearch,
+  navItems = defaultNavItems,
+  loginHref = "/login",
+  onSearch,
 }: HeaderProps) {
-    const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleSearchSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        onSearch?.(query);
-    };
+  const handleSearchSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    onSearch?.(query);
+  };
 
-    return (
-        <>
-            <header className="topbar">
-                <div className="brand">
-                    <Link href="/" aria-label="Katihar Engineering College home">
-                        <Image
-                            src="/brand/kec.png"
-                            alt="Katihar Engineering College Logo"
-                            width={120}
-                            height={120}
-                            priority
-                            className="seal"
-                        />
-                    </Link>
+  return (
+    <>
+      {/* Top bar: logo + brand text + search */}
+      <header className="flex flex-wrap items-center justify-between gap-5 border-y-[6px] border-[#cfe6d8] bg-white px-10 py-3.5 max-[900px]:justify-center max-[900px]:px-5 max-[900px]:text-center">
+        <div className="flex items-center gap-4.5 max-[900px]:flex-col max-[900px]:text-center">
+          <Link href="/" aria-label="Katihar Engineering College home">
+            <Image
+              src="/brand/kec.png"
+              alt="Katihar Engineering College Logo"
+              width={100}
+              height={100}
+              priority
+              className="h-auto w-auto shrink-0"
+            />
+          </Link>
 
-                    <div className="brand-text">
-                        <p className="hindi">कटिहार अभियन्त्रण महाविद्यालय</p>
-                        <h1>Katihar Engineering College</h1>
-                        <p className="city">Katihar</p>
-                        <p className="dept">( Dept. of Science &amp; Technology, Govt. of Bihar )</p>
-                    </div>
-                </div>
+          <div>
+            <p className="m-0 mb-0.5 text-sm font-semibold text-[#b5883f]">
+              कटिहार अभियन्त्रण महाविद्यालय
+            </p>
+            <h1 className="m-0 font-serif text-[26px] font-bold leading-tight text-[#0e6e4a]">
+              Katihar Engineering College
+            </h1>
+            <p className="m-0 mb-1 font-serif text-[22px] font-bold text-[#0e6e4a]">
+              Katihar
+            </p>
+            <p className="m-0 text-[13px] italic text-[#5a5a5a]">
+              ( Dept. of Science &amp; Technology, Govt. of Bihar )
+            </p>
+          </div>
+        </div>
 
-                <form className="search-wrap" onSubmit={handleSearchSubmit}>
-                    <div className="search-box">
-                        <input
-                            type="text"
-                            placeholder="Search Faculty"
-                            aria-label="Search Faculty"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <button type="submit" aria-label="Search">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx="11" cy="11" r="8" />
-                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </header>
+        <form className="m-0 flex items-center" onSubmit={handleSearchSubmit}>
+          <div className="flex min-w-70 items-stretch overflow-hidden rounded-md border border-[#ccc] max-[900px]:min-w-full">
+            <input
+              type="text"
+              placeholder="Search Faculty"
+              aria-label="Search Faculty"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full border-none px-4 py-3 text-[15px] text-[#1a1a1a] outline-none"
+            />
+            <button
+              type="submit"
+              aria-label="Search"
+              className="flex items-center justify-center bg-[#0e6e4a] px-5 text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </header>
 
-            <nav className="mainnav">
-                <label className="hamburger" htmlFor="menu-toggle" aria-label="Toggle menu">
-                    &#9776;
-                </label>
-                <input type="checkbox" id="menu-toggle" className="menu-toggle-input" />
+      {/* Main navigation */}
+      <nav className="relative bg-[#0e6e4a] max-[900px]:flex max-[900px]:flex-wrap max-[900px]:items-center">
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          onClick={() => setMenuOpen((open) => !open)}
+          className="hidden px-5.5 py-3.5 text-2xl text-white max-[900px]:ml-auto max-[900px]:block"
+        >
+          &#9776;
+        </button>
 
-                <ul className="nav-list">
-                    {navItems.map((item) => (
-                        <li key={item.label} className={item.items ? "has-dropdown" : ""}>
-                            <a href={item.href}>
-                                <span>{item.label}</span>
-                                {item.items && (
-                                    <svg
-                                        className="arrow"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M4 8L12 8 12 16"
-                                            stroke="currentColor"
-                                            strokeWidth="2.2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            transform="rotate(45 12 12)"
-                                        />
-                                    </svg>
-                                )}
-                            </a>
+        <ul
+          className={`m-0 flex list-none flex-wrap p-0 max-[900px]:w-full max-[900px]:flex-col ${menuOpen ? "max-[900px]:flex" : "max-[900px]:hidden"
+            }`}
+        >
+          {navItems.map((item) => (
+            <li key={item.label} className="group relative">
+              <a
+                href={item.href}
+                className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
+              >
+                <span>{item.label}</span>
+                {item.items && (
+                  <svg
+                    className="rotate-45 transition-transform duration-300 ease-in-out group-hover:rotate-225"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 8L12 8 12 16"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      transform="rotate(45 12 12)"
+                    />
+                  </svg>
+                )}
+              </a>
 
-                            {item.items && (
-                                <ul className="dropdown">
-                                    {item.items.map((sub) => (
-                                        <li key={sub.label}>
-                                            <a href={sub.href}>{sub.label}</a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
-                    ))}
-                    <li className="login">
-                        <a href={loginHref}>Login</a>
+              {item.items && (
+                <ul
+                  className="invisible absolute left-0 top-full z-20 min-w-57.5 -translate-y-2 rounded-b-lg bg-white py-2 opacity-0 shadow-[0_10px_24px_rgba(0,0,0,0.15)] transition-all duration-250 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 max-[900px]:static max-[900px]:hidden max-[900px]:translate-y-0 max-[900px]:bg-[#094d33] max-[900px]:opacity-100 max-[900px]:shadow-none max-[900px]:group-hover:block max-[900px]:group-focus-within:block"
+                >
+                  {item.items.map((sub) => (
+                    <li key={sub.label}>
+                      <a
+                        href={sub.href}
+                        className="block whitespace-nowrap border-l-[3px] border-transparent px-4.5 py-2.5 text-sm font-medium text-[#1a1a1a] transition-all duration-200 hover:border-l-[#0e6e4a] hover:bg-[#f0faf5] hover:pl-5.5 hover:text-[#094d33] max-[900px]:text-white max-[900px]:hover:bg-white/10"
+                      >
+                        {sub.label}
+                      </a>
                     </li>
+                  ))}
                 </ul>
-            </nav>
-
-            <style jsx>{`
-        :global(:root) {
-          --primary: #0e6e4a;
-          --primary-hover: #0f8a5c;
-          --primary-dark: #094d33;
-          --tan-border: #cfe6d8;
-          --gold: #b5883f;
-          --text-dark: #1a1a1a;
-          --text-muted: #5a5a5a;
-        }
-
-        .topbar {
-          background: #fff;
-          border-top: 6px solid var(--tan-border);
-          border-bottom: 6px solid var(--tan-border);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 14px 40px;
-          flex-wrap: wrap;
-          gap: 20px;
-        }
-
-        .brand {
-          display: flex;
-          align-items: center;
-          gap: 18px;
-        }
-
-        .seal {
-          width: 90px;
-          height: 90px;
-          flex-shrink: 0;
-        }
-
-        .brand-text .hindi {
-          font-size: 14px;
-          color: var(--gold);
-          font-weight: 600;
-          margin: 0 0 2px;
-        }
-
-        .brand-text h1 {
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 26px;
-          font-weight: 700;
-          color: var(--primary);
-          margin: 0;
-          line-height: 1.2;
-        }
-
-        .brand-text .city {
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 22px;
-          font-weight: 700;
-          color: var(--primary);
-          margin: 0 0 4px;
-        }
-
-        .brand-text .dept {
-          font-size: 13px;
-          font-style: italic;
-          color: var(--text-muted);
-          margin: 0;
-        }
-
-        .search-wrap {
-          display: flex;
-          align-items: center;
-          margin: 0;
-        }
-
-        .search-box {
-          display: flex;
-          align-items: stretch;
-          border: 1px solid #ccc;
-          border-radius: 6px;
-          overflow: hidden;
-          min-width: 280px;
-        }
-
-        .search-box input {
-          border: none;
-          outline: none;
-          padding: 12px 16px;
-          font-size: 15px;
-          width: 100%;
-          color: var(--text-dark);
-        }
-
-        .search-box button {
-          background: var(--primary);
-          border: none;
-          color: #fff;
-          padding: 0 20px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background 0.2s ease;
-        }
-
-        .search-box button:hover {
-          background: var(--primary-hover);
-        }
-
-        .mainnav {
-          background: var(--primary);
-          position: relative;
-        }
-
-        .menu-toggle-input {
-          display: none;
-        }
-
-        .nav-list {
-          list-style: none;
-          display: flex;
-          margin: 0;
-          padding: 0;
-          flex-wrap: wrap;
-        }
-
-        .nav-list > li {
-          position: relative;
-        }
-
-        .nav-list > li > a {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          color: #fff;
-          text-decoration: none;
-          font-size: 15px;
-          font-weight: 600;
-          padding: 16px 22px;
-          white-space: nowrap;
-          transition: background 0.2s ease;
-        }
-
-        .nav-list > li > a:hover {
-          background: var(--primary-hover);
-        }
-
-        .arrow {
-          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          transform: rotate(45deg);
-        }
-
-        .has-dropdown:hover .arrow {
-          transform: rotate(225deg);
-        }
-
-        .login {
-          margin-left: auto;
-        }
-
-        .dropdown {
-          list-style: none;
-          margin: 0;
-          padding: 8px 0;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          min-width: 230px;
-          background: #fff;
-          border-radius: 0 0 8px 8px;
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-8px);
-          transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-          z-index: 20;
-        }
-
-        .has-dropdown:hover .dropdown {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-
-        .dropdown li a {
-          display: block;
-          padding: 10px 18px;
-          color: var(--text-dark);
-          font-size: 14px;
-          font-weight: 500;
-          text-decoration: none;
-          white-space: nowrap;
-          border-left: 3px solid transparent;
-          transition: background 0.2s ease, border-color 0.2s ease, padding 0.2s ease;
-        }
-
-        .dropdown li a:hover {
-          background: #f0faf5;
-          border-left-color: var(--primary);
-          padding-left: 22px;
-          color: var(--primary-dark);
-        }
-
-        .hamburger {
-          display: none;
-          background: none;
-          border: none;
-          color: #fff;
-          font-size: 24px;
-          padding: 14px 22px;
-          cursor: pointer;
-        }
-
-        @media (max-width: 900px) {
-          .topbar {
-            padding: 14px 20px;
-            justify-content: center;
-            text-align: center;
-          }
-          .brand {
-            flex-direction: column;
-            text-align: center;
-          }
-          .search-box {
-            min-width: 100%;
-          }
-          .hamburger {
-            display: block;
-            margin-left: auto;
-          }
-          .nav-list {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-          }
-          .menu-toggle-input:checked ~ .nav-list {
-            display: flex;
-          }
-          .login {
-            margin-left: 0;
-          }
-          .mainnav {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-          }
-          .dropdown {
-            position: static;
-            box-shadow: none;
-            opacity: 1;
-            visibility: visible;
-            transform: none;
-            display: none;
-            background: var(--primary-dark);
-          }
-          .has-dropdown:hover .dropdown,
-          .has-dropdown:focus-within .dropdown {
-            display: block;
-          }
-          .dropdown li a {
-            color: #fff;
-          }
-          .dropdown li a:hover {
-            background: rgba(255, 255, 255, 0.1);
-          }
-        }
-      `}</style>
-        </>
-    );
+              )}
+            </li>
+          ))}
+          <li className="max-[900px]:ml-0 md:ml-auto">
+            <a
+              href={loginHref}
+              className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
+            >
+              Login
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </>
+  );
 }
