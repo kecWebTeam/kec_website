@@ -30,14 +30,14 @@ const defaultNavItems: NavLink[] = [
   { label: "Home", href: "/" },
   {
     label: "About KEC",
-    href: "/about",
+    href: "/about/history",
     items: [
       { label: "History", href: "/about/history" },
       { label: "Administration", href: "/about/administration" },
-      { label: "Vision & Mission", href: "/about/vision-mission" },
+      { label: "Vision & Mission", href: "/about/vision" },
       { label: "Principal's Message", href: "/about/principal-message" },
       { label: "Affiliation", href: "/about/affiliation" },
-      { label: "Allotment & Surrender Report", href: "/about/allotment-surrender-report" },
+      { label: "Allotment & Surrender Report", href: "/about/allotment" },
     ],
   },
   {
