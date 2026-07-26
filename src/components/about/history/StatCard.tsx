@@ -25,7 +25,7 @@ export default function StatCard({
       transition-all
       duration-300
       hover:shadow-2xl
-      hover:-translate-y-2
+      hover:-translate-y-1
       flex
       flex-col
       items-center
