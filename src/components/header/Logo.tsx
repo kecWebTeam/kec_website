@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Logo() {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center">
         <Link href="/" aria-label="Katihar Engineering College home">
             <Image
               src="/brand/kec.png"
