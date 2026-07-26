@@ -133,3 +133,40 @@
     @apply font-sans;
   }
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 10s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* scroll-up for important links on home page */
+@keyframes scroll-up {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 10s linear infinite;
+}
+
+.animate-scroll-up:hover {
+  animation-play-state: paused;
+}
