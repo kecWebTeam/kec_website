@@ -23,10 +23,6 @@ export default function AboutKEC() {
 
           {/* Right Content */}
           <div className="max-w-2xl">
-            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-green-700">
-              About Us
-            </span>
-
             <h2 className="mt-3 text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">
               About KEC
             </h2>
@@ -85,7 +81,7 @@ export default function AboutKEC() {
             {/* Button */}
             <div className="mt-10">
               <Link
-                href="/about"
+                href="/about/history"
                 className="inline-flex items-center rounded-xl bg-green-700 px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-green-800 hover:shadow-xl"
               >
                 Read More →
