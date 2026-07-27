@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { QueryProvider } from "@/components/providers/query-provider";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 
@@ -27,8 +28,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header />
-        {children}
-        <Footer/>
+        <QueryProvider>
+          {children}
+        </QueryProvider>
+        <Footer />
       </body>
     </html>
   );
