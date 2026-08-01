@@ -1,14 +1,11 @@
-export default async function RootGroupLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <>
-      <main>
-        {children}
-      </main>
-    </>
+   <div>
+    {children}
+   </div>
   );
 }
