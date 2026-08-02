@@ -97,7 +97,7 @@ export default function KecWebDevTeam({
                         src={item.photo}
                         alt={item.name}
                         fill
-                        className="object-contain"
+                        className="object-cover"
                         sizes="(min-width: 640px) 144px, 112px"
                       />
                     ) : (
