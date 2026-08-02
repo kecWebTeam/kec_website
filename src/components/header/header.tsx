@@ -144,6 +144,7 @@ export default function Header({
 }: HeaderProps) {
   const [query, setQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const handleSearchSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -202,6 +203,14 @@ export default function Header({
               <a
                 href={item.href}
                 className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
+                aria-expanded={item.items ? openMenu === item.label : undefined}
+                aria-controls={item.items ? `submenu-${item.label.replace(/\s+/g, '-')}` : undefined}
+                onClick={(e) => {
+                  if (item.items && typeof window !== 'undefined' && window.innerWidth < 1024) {
+                    e.preventDefault();
+                    setOpenMenu((prev) => (prev === item.label ? null : item.label));
+                  }
+                }}
               >
                 <span>{item.label}</span>
                 {item.items && (
@@ -226,8 +235,8 @@ export default function Header({
               </a>
 
               {item.items && (
-                <ul
-                  className="invisible absolute left-0 top-full z-20 min-w-57.5 -translate-y-2 rounded-b-lg bg-white py-2 opacity-0 shadow-[0_10px_24px_rgba(0,0,0,0.15)] transition-all duration-250 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 max-[900px]:static max-[900px]:hidden max-[900px]:translate-y-0 max-[900px]:bg-[#094d33] max-[900px]:opacity-100 max-[900px]:shadow-none max-[900px]:group-hover:block max-[900px]:group-focus-within:block"
+                <ul id={`submenu-${item.label.replace(/\s+/g, '-')}`}
+                  className={`invisible absolute left-0 top-full z-20 min-w-57.5 -translate-y-2 rounded-b-lg bg-white py-2 opacity-0 shadow-[0_10px_24px_rgba(0,0,0,0.15)] transition-all duration-250 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 max-[900px]:static ${openMenu === item.label ? 'max-[900px]:block max-[900px]:visible' : 'max-[900px]:hidden'} max-[900px]:translate-y-0 max-[900px]:bg-[#094d33] max-[900px]:opacity-100 max-[900px]:shadow-none`}
                 >
                   {item.items.map((sub) => (
                     <li key={sub.label}>

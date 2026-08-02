@@ -33,7 +33,7 @@ const teamMembers: WebTeamMember[] = [
   department: 'Computer Science and Engineering',
   designation: 'Assistant Professor & KEC Web Head',
   email: 'talib@keck.ac.in',
-  photo: '/images/Talibsir.jfif', // Save the image as talib.jpg in /public/images
+  photo: '/images/talibsir.jpg', // Save the image as talib.jpg in /public/images
   profileUrl: '#', // Replace with actual profile URL if available
 },
   {
