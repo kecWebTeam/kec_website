@@ -26,14 +26,14 @@ export type WebTeamMember = {
 
 // ---- Constant sample data for now ----
 const teamMembers: WebTeamMember[] = [
-    {
+  {
   id: 1,
   name: 'Md Talib Ahmad',
   studentTag: 'Assistant Professor',
   department: 'Computer Science and Engineering',
   designation: 'Assistant Professor & KEC Web Head',
   email: 'talib@keck.ac.in',
-  photo: '/images/talibsir-kec.jpg', // Save the image as talib.jpg in /public/images
+  photo: '/images/tal.png', // Save the image as talib.jpg in /public/images
   profileUrl: '#', // Replace with actual profile URL if available
 },
   {
