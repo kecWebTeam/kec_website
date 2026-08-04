@@ -94,15 +94,15 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "Training & Placement",
-    href: "/training-placement",
+    href: "/training-placement/about",
     items: [
       { label: "About Placement", href: "/training-placement/about" },
-      { label: "Placement Brouchure", href: "/training-placement/brouchure" },
+      { label: "Placement Brochure", href: "/training-placement/brochure" },
       { label: "Rules of training & Placement", href: "/training-placement/rules" },
-      { label: "Tips for Resume", href: "/training-placement/resume" },
+      { label: "Tips for Resume", href: "/training-placement/resume-tips" },
       { label: "Placed Students", href: "/training-placement/placed-students" },
-      { label: "Student Placement Coordinator", href: "/training-placement/student-placement-coordinator" },
-      { label: "Placement Portal", href: "/training-placement/placement-portal" },
+      { label: "Student Placement Coordinator", href: "/training-placement/co-ordinator" },
+      { label: "Placement Portal", href: "https://tpo.keckatihar.in/" },
     ],
   },
   {
