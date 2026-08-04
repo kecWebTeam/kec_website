@@ -1,13 +1,24 @@
+import { Target } from "lucide-react";
+
 const VisionPage = () => {
   return (
     <section className="mx-auto max-w-7xl px-6 py-12">
       {/* Page Heading */}
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-black">
-          Vision & Mission
-        </h1>
+      {/* Hero */}
+      <div className="relative mb-12 overflow-hidden rounded-2xl bg-gradient-to-r from-[#094d33] via-[#0e6e4a] to-[#16a56f] px-8 py-7 shadow-lg">
+        {/* Background Decoration */}
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-emerald-300/10 blur-3xl" />
 
-        <div className="mx-auto mt-3 h-1 w-40 rounded-full bg-[#0e6e4a]" />
+        <div className="relative flex items-center justify-center gap-4">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-md">
+            <Target className="h-7 w-7 text-white" />
+          </div>
+
+          <h1 className="text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
+            Vision & Mission
+          </h1>
+        </div>
       </div>
 
       {/* Vision */}

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BellRing, Loader2 } from "lucide-react";
+import EmptyState from "@/components/shared/EmptyState";
 
 // Define the type for Government Notice data
 type GovernmentNotice = {
@@ -59,19 +60,13 @@ const GovernmentNoticePage = () => {
             <p className="mt-4 text-slate-600">Loading government notices...</p>
           </div>
         ) : notices.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#cfe6d8] bg-[#f8fcfa] py-20">
-            <BellRing className="h-12 w-12 text-[#0e6e4a]" />
-
-            <h2 className="mt-5 text-2xl font-semibold text-[#0e6e4a]">
-              No Government Notices Available
-            </h2>
-
-            <p className="mt-3 max-w-xl text-center text-base leading-7 text-slate-600">
-              There are currently no government notices to display. New notices
+          <EmptyState
+            icon={BellRing}
+            title="No Government Notices Available"
+            description="There are currently no government notices to display. New notices
               and official announcements will appear here once they are
-              published.
-            </p>
-          </div>
+              published."
+          />
         ) : (
           <div>{/* Future government notices */}</div>
         )}

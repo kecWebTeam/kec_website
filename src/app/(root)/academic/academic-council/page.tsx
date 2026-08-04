@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { UsersRound, Loader2 } from "lucide-react";
+import { UsersRound, Loader2, ShieldAlert } from "lucide-react";
+import EmptyState from "@/components/shared/EmptyState";
 
 // Define the type for Academic Council data
 type AcademicCouncil = {
@@ -60,18 +61,12 @@ const AcademicCouncilPage = () => {
             </p>
           </div>
         ) : minutes.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#cfe6d8] bg-[#f8fcfa] py-20">
-            <UsersRound className="h-12 w-12 text-[#0e6e4a]" />
-
-            <h2 className="mt-5 text-2xl font-semibold text-[#0e6e4a]">
-              Meeting Minutes Coming Soon
-            </h2>
-
-            <p className="mt-3 max-w-xl text-center text-base leading-7 text-slate-600">
-              Minutes of Meeting (MoM) of the Academic Council will be published
-              here once they become available.
-            </p>
-          </div>
+          <EmptyState
+            icon={ShieldAlert}
+            title="Meeting Minutes Coming Soon"
+            description="Minutes of Meeting (MoM) of the Academic Council will be published
+              here once they become available."
+          />
         ) : (
           <div>{/* Future Academic Council records */}</div>
         )}
