@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import Logo from "./Logo";
 
 export type NavSubLink = {
@@ -158,6 +156,7 @@ export default function Header({
         <div className="flex items-center gap-4.5 max-[900px]:flex-col max-[900px]:text-center">
           <Logo />
         </div>
+
 
         <form className="m-0 flex items-center" onSubmit={handleSearchSubmit}>
           <div className="flex min-w-70 items-stretch overflow-hidden rounded-md border border-[#ccc] max-[900px]:min-w-full">
