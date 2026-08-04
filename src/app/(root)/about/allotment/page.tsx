@@ -1,6 +1,7 @@
 "use client";
 
-import { Loader2 } from "lucide-react";
+import { Loader2, FileBarChart2 } from "lucide-react";
+import EmptyState from "@/components/shared/EmptyState";
 import { useEffect, useState } from "react";
 
 // Modify type based on your API response structure
@@ -41,12 +42,20 @@ const AllotmentPage = () => {
   return (
     <section className="mx-auto max-w-7xl px-6 py-12">
       {/* Heading */}
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-black">
-          Allotment and Surrender Report
-        </h1>
+      {/* Hero */}
+      <div className="relative mb-10 overflow-hidden rounded-2xl bg-gradient-to-r from-[#094d33] via-[#0e6e4a] to-[#16a56f] px-8 py-7 shadow-lg">
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-emerald-300/10 blur-3xl" />
 
-        <div className="mx-auto mt-3 h-1 w-56 rounded-full bg-[#0e6e4a]" />
+        <div className="relative flex items-center justify-center gap-4">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-md">
+            <FileBarChart2 className="h-7 w-7 text-white" />
+          </div>
+
+          <h1 className="text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
+            Allotment &amp; Surrender Report
+          </h1>
+        </div>
       </div>
 
       <div className="rounded-2xl border border-[#cfe6d8] bg-white p-8 shadow-sm">
@@ -61,16 +70,11 @@ const AllotmentPage = () => {
             <p className="mt-4 text-sm text-gray-600">Loading reports...</p>
           </div>
         ) : reports.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#cfe6d8] bg-[#f8fcfa] py-16">
-            <h3 className="text-2xl font-semibold text-[#0e6e4a]">
-              Coming Soon
-            </h3>
-
-            <p className="mt-3 text-gray-600">
-              The year-wise fund allotment and surrender reports will be
-              published here once available.
-            </p>
-          </div>
+          <EmptyState
+            icon={FileBarChart2}
+            title="Reports Coming Soon"
+            description="The year-wise fund allotment and surrender reports will be published here once they become available."
+          />
         ) : (
           <div className="space-y-4">
             {reports.map((report) => (

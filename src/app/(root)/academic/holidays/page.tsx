@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CalendarX2, Loader2, FileText } from "lucide-react";
+import EmptyState from "@/components/shared/EmptyState";
 
 // Define the type for holiday records
 type Holiday = {
@@ -17,9 +18,7 @@ const HolidayPage = () => {
     const fetchHolidays = async () => {
       try {
         // Replace this with your actual API
-        const res = await fetch(
-          "https://api.example.com/holidays",
-        );
+        const res = await fetch("https://api.example.com/holidays");
 
         if (!res.ok) {
           throw new Error("Failed to fetch holidays");
@@ -34,7 +33,6 @@ const HolidayPage = () => {
         }));
 
         setHolidays(formatted);
-
       } catch (error) {
         console.error(error);
         setHolidays([]);
@@ -71,18 +69,12 @@ const HolidayPage = () => {
             <p className="mt-4 text-slate-600">Loading holidays...</p>
           </div>
         ) : holidays.length === 0 ? (
-          <div className="flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#cfe6d8] bg-[#f8fcfa] py-20">
-            <CalendarX2 className="h-12 w-12 text-[#0e6e4a]" />
-
-            <h2 className="mt-5 text-2xl font-semibold text-[#0e6e4a]">
-              Holiday List Coming Soon
-            </h2>
-
-            <p className="mt-3 max-w-md text-center text-base leading-7 text-slate-600">
-              The official list of holidays will be published here once it
-              becomes available.
-            </p>
-          </div>
+          <EmptyState
+            icon={CalendarX2}
+            title="Holiday List Coming Soon"
+            description="The official list of holidays will be published here once it
+              becomes available."
+          />
         ) : (
           <div className="space-y-4">
             {holidays.map((holiday) => (
