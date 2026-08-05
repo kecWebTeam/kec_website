@@ -72,7 +72,7 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "Facilities",
-    href: "/facilities",
+    href: "",
     items: [
       { label: "Bank", href: "facilities/bank" },
       { label: "Central Library", href: "/facilities/library" },
@@ -85,7 +85,7 @@ const defaultNavItems: NavLink[] = [
       { label: "Medical Facilities", href: "/facilities/medical-facilities" },
       { label: "Placement", href: "/facilities/placement" },
       { label: "Sports Facilities", href: "/facilities/sports-facilities" },
-      { label: "Startup Cell", href: "/facilities/startup-cell"},
+      { label: "Startup Cell", href: "/facilities/startup-cell" },
       { label: "Useful Link", href: "/facilities/useful-link" },
       { label: "Wi Fi", href: "/facilities/wi-fi" },
     ],
@@ -108,9 +108,9 @@ const defaultNavItems: NavLink[] = [
     href: "/approval",
     items: [
       { label: "AICTE Approval", href: "/approval/aicte" },
-      { label: "AKU Approval", href: "/approval/ugc" },
+      { label: "AKU Approval", href: "/approval/aku" },
       { label: "Grievance", href: "/approval/grievance" },
-      { label: "Mandatory Disclosure", href: "/approval/mandatory-disclosure" },
+      { label: "Mandatory Disclosure", href: "/approval/disclosure" },
     ],
   },
   {
@@ -199,9 +199,8 @@ export default function Header({
         >
           {navItems.map((item) => (
             <li key={item.label} className="group relative">
-              <a
-                href={item.href}
-                className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
+              <div
+                className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c] cursor-pointer"
                 aria-expanded={item.items ? openMenu === item.label : undefined}
                 aria-controls={item.items ? `submenu-${item.label.replace(/\s+/g, '-')}` : undefined}
                 onClick={(e) => {
@@ -231,7 +230,7 @@ export default function Header({
                     />
                   </svg>
                 )}
-              </a>
+              </div>
 
               {item.items && (
                 <ul id={`submenu-${item.label.replace(/\s+/g, '-')}`}

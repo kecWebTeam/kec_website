@@ -1,8 +1,9 @@
+import PublicInformationOfficer from "@/components/rti/informationCell";
+
 export default function Page() {
   return (
-    <div className="p-6">
-      <h1>Coming Soon</h1>
-      <p>This page is under development.</p>
-    </div>
+    <main className="mx-auto max-w-7xl px-4 py-10">
+      <PublicInformationOfficer />
+    </main>
   );
 }

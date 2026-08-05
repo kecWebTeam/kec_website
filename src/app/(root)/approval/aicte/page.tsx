@@ -1,19 +1,9 @@
-import React from "react";
-import styles from "./page.module.css";
+import AICTEApproval from "@/components/approval/aicte-approval";
 
-export const metadata = {
-  title: "AICTE Approval",
-  description: "AICTE approval information page.",
-};
-
-export default function AicteApprovalPage() {
+export default function Page() {
   return (
-    <section className={styles.container}>
-      <h1 className={styles.title}>AICTE Approval</h1>
-      <p className={styles.description}>
-        Welcome to the AICTE approval portal. Here you can find all necessary information and documentation required for the approval process.
-      </p>
-      {/* Add more dynamic content as needed */}
-    </section>
+    <main className="mx-auto max-w-7xl px-4 py-10">
+      <AICTEApproval />
+    </main>
   );
 }
