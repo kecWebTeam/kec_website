@@ -3,6 +3,8 @@ import FloatingLinks from "@/components/home/floatingLinks";
 import HomeWidgets from "@/components/home/HomeWidgets";
 import AutoImageCarousel from "@/components/home/AutoImageCarousel";
 import AboutKEC from "@/components/home/about-kec";
+import AchievementsCarousel from "@/components/home/achievementsCarousel";
+import KecWebTeam from "@/components/home/web-team";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <HomeWidgets />
       <AutoImageCarousel />
       <AboutKEC />
+      <AchievementsCarousel />
+      <KecWebTeam />
     </div>
   );
 }

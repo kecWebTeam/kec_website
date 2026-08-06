@@ -13,6 +13,7 @@ import {
   FaXTwitter,
   FaWhatsapp,
 } from "react-icons/fa6";
+import { ModeToggle } from "../ui/mode-toggle";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -236,7 +237,10 @@ export default function Footer() {
               KEC Web Team ❤️
             </span>
           </p>
-
+{/* 
+            <div>
+              <ModeToggle />
+            </div> */}
           <div className="flex gap-6">
             <Link href="/">Privacy</Link>
 

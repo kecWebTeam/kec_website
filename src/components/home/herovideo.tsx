@@ -39,7 +39,7 @@ export default function HeroVideo({ videoSrc, startTime = 0 }: HeroVideoProps) {
   return (
     <video
       ref={videoRef}
-      className="h-screen w-full object-cover"
+      className="h-full lg:h-screen w-full object-contain lg:object-cover"
       muted
       loop
       playsInline
