@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import Logo from "./Logo";
+import Link from "next/link";
 
 export type NavSubLink = {
   label: string;
@@ -40,7 +41,7 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "Academic",
-    href: "/academic",
+    href: "/academic/admission",
     items: [
       { label: "Admission", href: "/academic/admission" },
       { label: "Academic Regulations", href: "/academic/regulations" },
@@ -50,7 +51,10 @@ const defaultNavItems: NavLink[] = [
       { label: "Attendance", href: "/academic/attendance" },
       { label: "Syllabus", href: "/academic/syllabus" },
       { label: "Disciplinary Rules", href: "/academic/rules" },
-      { label: "Online Fee Payment Tutorial", href: "/academic/payment-tutorial" },
+      {
+        label: "Online Fee Payment Tutorial",
+        href: "/academic/payment-tutorial",
+      },
       { label: "Anti Ragging", href: "/academic/anti-ragging" },
       { label: "MoM of Academic Council", href: "/academic/academic-council" },
       { label: "Notice from Govt.", href: "/academic/notice" },
@@ -58,12 +62,15 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "Departments",
-    href: "/departments",
+    href: "/departments/ce",
     items: [
       { label: "Civil Engineering", href: "/departments/ce" },
       { label: "Mechanical Engineering", href: "/departments/me" },
       { label: "Mechanical and Smart Manufacturing", href: "/departments/msm" },
-      { label: "Electronics Engineering (VLSI Design and Technology", href: "/departments/ece" },
+      {
+        label: "Electronics Engineering (VLSI Design and Technology",
+        href: "/departments/ece",
+      },
       { label: "Computer Sc. & Engineering", href: "/departments/cse" },
       { label: "Electrical & Electronics Engg.", href: "/departments/eee" },
       { label: "Applied Sc. & Humanities", href: "/departments/ash" },
@@ -72,9 +79,9 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "Facilities",
-    href: "",
+    href: "/facilities/bank",
     items: [
-      { label: "Bank", href: "facilities/bank" },
+      { label: "Bank", href: "/facilities/bank" },
       { label: "Central Library", href: "/facilities/library" },
       { label: "Computer Centre", href: "/facilities/computer-centre" },
       { label: "Club", href: "/facilities/club" },
@@ -96,16 +103,22 @@ const defaultNavItems: NavLink[] = [
     items: [
       { label: "About Placement", href: "/training-placement/about" },
       { label: "Placement Brochure", href: "/training-placement/brochure" },
-      { label: "Rules of training & Placement", href: "/training-placement/rules" },
+      {
+        label: "Rules of training & Placement",
+        href: "/training-placement/rules",
+      },
       { label: "Tips for Resume", href: "/training-placement/resume-tips" },
       { label: "Placed Students", href: "/training-placement/placed-students" },
-      { label: "Student Placement Coordinator", href: "/training-placement/co-ordinator" },
+      {
+        label: "Student Placement Coordinator",
+        href: "/training-placement/co-ordinator",
+      },
       { label: "Placement Portal", href: "https://tpo.keckatihar.in/" },
     ],
   },
   {
     label: "Approval",
-    href: "/approval",
+    href: "/approval/aicte",
     items: [
       { label: "AICTE Approval", href: "/approval/aicte" },
       { label: "AKU Approval", href: "/approval/aku" },
@@ -115,17 +128,20 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "RTI",
-    href: "/rti",
+    href: "/rti/act",
     items: [
       { label: "RTI Act 2005", href: "/rti/act" },
       { label: "RTI Application Form", href: "/rti/application" },
       { label: "RTI Status", href: "/rti/status" },
-      { label: "Public Information Cell", href: "/rti/public-information-cell" },
+      {
+        label: "Public Information Cell",
+        href: "/rti/public-information-cell",
+      },
     ],
   },
   {
     label: "Gallery",
-    href: "/gallery",
+    href: "/gallery/photos",
     items: [
       { label: "Photo Gallery", href: "/gallery/photos" },
       { label: "Video Gallery", href: "/gallery/videos" },
@@ -157,7 +173,6 @@ export default function Header({
           <Logo />
         </div>
 
-
         <form className="m-0 flex items-center" onSubmit={handleSearchSubmit}>
           <div className="flex min-w-70 items-stretch overflow-hidden rounded-md border border-[#ccc] max-[900px]:min-w-full">
             <input
@@ -173,7 +188,16 @@ export default function Header({
               aria-label="Search"
               className="flex items-center justify-center bg-[#0e6e4a] px-5 text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -194,56 +218,70 @@ export default function Header({
         </button>
 
         <ul
-          className={`m-0 flex list-none flex-wrap p-0 max-[900px]:w-full max-[900px]:flex-col ${menuOpen ? "max-[900px]:flex" : "max-[900px]:hidden"
-            }`}
+          className={`m-0 flex list-none flex-wrap p-0 max-[900px]:w-full max-[900px]:flex-col ${
+            menuOpen ? "max-[900px]:flex" : "max-[900px]:hidden"
+          }`}
         >
           {navItems.map((item) => (
             <li key={item.label} className="group relative">
-              <div
-                className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c] cursor-pointer"
-                aria-expanded={item.items ? openMenu === item.label : undefined}
-                aria-controls={item.items ? `submenu-${item.label.replace(/\s+/g, '-')}` : undefined}
-                onClick={(e) => {
-                  if (item.items && typeof window !== 'undefined' && window.innerWidth < 1024) {
-                    e.preventDefault();
-                    setOpenMenu((prev) => (prev === item.label ? null : item.label));
-                  }
-                }}
-              >
-                <span>{item.label}</span>
+              <div className="flex items-center">
+                {/* Parent Page Link */}
+                <Link
+                  href={item.href}
+                  onClick={(e) => {
+                    const isMobile =
+                      typeof window !== "undefined" && window.innerWidth < 1060;
+
+                    if (isMobile && item.items) {
+                      e.preventDefault();
+
+                      setOpenMenu((prev) =>
+                        prev === item.label ? null : item.label,
+                      );
+                    }
+                  }}
+                  className="flex items-center gap-1.5 whitespace-nowrap px-5.5 py-4 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f8a5c]"
+                >
+                  {item.label}
+                </Link>
+
+                {/* Dropdown Toggle */}
                 {item.items && (
+                  // <div className="flex items-center px-2 text-white">
                   <svg
-                    className="rotate-45 transition-transform duration-300 ease-in-out group-hover:rotate-225"
+                    className={`transition-transform duration-300 ${
+                      openMenu === item.label ? "rotate-180" : ""
+                    } group-hover:rotate-180 text-white`}
                     width="14"
                     height="14"
                     viewBox="0 0 24 24"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M4 8L12 8 12 16"
+                      d="M6 9L12 15L18 9"
                       stroke="currentColor"
-                      strokeWidth="2.2"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      transform="rotate(45 12 12)"
                     />
                   </svg>
+                  // </div>
                 )}
               </div>
 
               {item.items && (
-                <ul id={`submenu-${item.label.replace(/\s+/g, '-')}`}
-                  className={`invisible absolute left-0 top-full z-20 min-w-57.5 -translate-y-2 rounded-b-lg bg-white py-2 opacity-0 shadow-[0_10px_24px_rgba(0,0,0,0.15)] transition-all duration-250 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 max-[900px]:static ${openMenu === item.label ? 'max-[900px]:block max-[900px]:visible' : 'max-[900px]:hidden'} max-[900px]:translate-y-0 max-[900px]:bg-[#094d33] max-[900px]:opacity-100 max-[900px]:shadow-none`}
+                <ul
+                  id={`submenu-${item.label.replace(/\s+/g, "-")}`}
+                  className={`invisible absolute left-0 top-full z-20 min-w-57.5 -translate-y-2 rounded-b-lg bg-white py-2 opacity-0 shadow-[0_10px_24px_rgba(0,0,0,0.15)] transition-all duration-250 ease-in-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 max-[900px]:static ${openMenu === item.label ? "max-[900px]:block max-[900px]:visible" : "max-[900px]:hidden"} max-[900px]:translate-y-0 max-[900px]:bg-[#094d33] max-[900px]:opacity-100 max-[900px]:shadow-none`}
                 >
                   {item.items.map((sub) => (
                     <li key={sub.label}>
-                      <a
+                      <Link
                         href={sub.href}
                         className="block whitespace-nowrap border-l-[3px] border-transparent px-4.5 py-2.5 text-sm font-medium text-[#1a1a1a] transition-all duration-200 hover:border-l-[#0e6e4a] hover:bg-[#f0faf5] hover:pl-5.5 hover:text-[#094d33] max-[900px]:text-white max-[900px]:hover:bg-white/10"
                       >
                         {sub.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
