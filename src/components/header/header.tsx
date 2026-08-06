@@ -62,19 +62,16 @@ const defaultNavItems: NavLink[] = [
   },
   {
     label: "Departments",
-    href: "/departments/ce",
+    href: "/department/civil",
     items: [
-      { label: "Civil Engineering", href: "/departments/ce" },
-      { label: "Mechanical Engineering", href: "/departments/me" },
-      { label: "Mechanical and Smart Manufacturing", href: "/departments/msm" },
-      {
-        label: "Electronics Engineering (VLSI Design and Technology",
-        href: "/departments/ece",
-      },
-      { label: "Computer Sc. & Engineering", href: "/departments/cse" },
-      { label: "Electrical & Electronics Engg.", href: "/departments/eee" },
-      { label: "Applied Sc. & Humanities", href: "/departments/ash" },
-      { label: "Food Processing", href: "/departments/fpe" },
+      { label: "Civil Engineering", href: "/department/civil" },
+      { label: "Mechanical Engineering", href: "/department/mech" },
+      { label: "Mechanical and Smart Manufacturing", href: "/department/msm" },
+      { label: "Electronics Engineering (VLSI Design and Technology", href: "/department/ece" },
+      { label: "Computer Sc. & Engineering", href: "/department/cse" },
+      { label: "Electrical & Electronics Engg.", href: "/department/eee" },
+      { label: "Applied Sc. & Humanities", href: "/department/ash" },
+      { label: "Food Processing", href: "/department/fp" },
     ],
   },
   {
@@ -103,16 +100,10 @@ const defaultNavItems: NavLink[] = [
     items: [
       { label: "About Placement", href: "/training-placement/about" },
       { label: "Placement Brochure", href: "/training-placement/brochure" },
-      {
-        label: "Rules of training & Placement",
-        href: "/training-placement/rules",
-      },
+      { label: "Rules of training & Placement", href: "/training-placement/rules" },
       { label: "Tips for Resume", href: "/training-placement/resume-tips" },
       { label: "Placed Students", href: "/training-placement/placed-students" },
-      {
-        label: "Student Placement Coordinator",
-        href: "/training-placement/co-ordinator",
-      },
+      { label: "Student Placement Coordinator", href: "/training-placement/co-ordinator" },
       { label: "Placement Portal", href: "https://tpo.keckatihar.in/" },
     ],
   },
